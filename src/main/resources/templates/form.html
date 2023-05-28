@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head th:replace="layaout/layaout :: head"></head>
+<body>
+	<header th:replace="layaout/layaout :: header"></header>
+	<div class="container">
+		<div class="card bg-light m-3">
+			<div class="card-header bg-primary text-white" th:text="${titulo}"></div>
+			<div class="card-body">
+				<form th:action="@{/form}" th:object="${cliente}" method="post"
+					enctype="multipart/form-data">
+					<div class="mb-3">
+						<label for="nombre" class="form-label">Nombre</label> <input
+							type="text" th:field="*{nombre}" class="form-control"
+							th:errorclass="'form-control alert alert-danger'"
+							placeholder="nombre" /> <small
+							th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+							class="form-text text-danger"></small>
+					</div>
+					<div class="mb-3">
+						<label for="apellido" class="form-label">Apellido</label> <input
+							type="text" th:field="*{apellido}" class="form-control"
+							th:errorclass="'form-control alert alert-danger'"
+							placeholder="apellido" /> <small
+							th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"
+							class="form-text text-danger"></small>
+					</div>
+					<div class="mb-3">
+						<label for="email" class="form-label">Email</label> <input
+							type="email" th:field="*{email}" class="form-control"
+							th:errorclass="'form-control alert alert-danger'"
+							placeholder="email@gmail.com" /> <small
+							th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+							class="form-text text-danger"></small>
+					</div>
+					<div class="mb-3">
+						<label for="file" class="form-label">Imagen</label> <input
+							type="file" name="file" class="form-control" />
+					</div>
+					<input type="submit" value="Crear Cliente"
+						class="btn btn-success m-2" />
+				</form>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="layaout/layaout :: footer"></footer>
+</body>
+</html>
