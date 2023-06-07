@@ -151,8 +151,10 @@ public class ClienteController {
 			Cliente cliente = clienteService.findOne(id);
 			clienteService.delete(id);
 			redirectAttributes.addFlashAttribute("success", "Cliente eliminado con exito");
-			if (uploadService.delete(cliente.getFoto())) {
-				redirectAttributes.addFlashAttribute("info", "Foto eliminada con exito: " + cliente.getFoto());
+			if(cliente.getFoto() != null) {
+				if (uploadService.delete(cliente.getFoto())) {
+					redirectAttributes.addFlashAttribute("info", "Foto eliminada con exito: " + cliente.getFoto());
+				}
 			}
 		}
 		return "redirect:/listar";
