@@ -39,7 +39,7 @@ public class ClienteController {
 	@Autowired
 	private IUploadFileService uploadService;
 
-	@GetMapping("./uploads/{filename:.+}")
+	@GetMapping("/uploads/{filename:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable(value = "filename") String filename) {
 		Resource recurso = null;
 		try {
