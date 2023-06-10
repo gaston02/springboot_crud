@@ -27,11 +27,11 @@ public class Cliente implements Serializable {
 	private Long id;
 	
 	@NotEmpty(message="El nombre no puede ir vacio")
-	@Size(min=4, max=12)
+	@Size(min=3, max=15)
 	private String nombre;
 	
 	@NotEmpty(message="El apellido no puede ir vacio")
-	@Size(min=4, max=12)
+	@Size(min=3, max=15)
 	private String apellido;
 	
 	@NotEmpty(message="El e-mail no puede ir vacio")
